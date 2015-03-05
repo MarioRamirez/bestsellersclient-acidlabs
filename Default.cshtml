@@ -10,8 +10,29 @@
     <head>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.3.min.js"></script>
         <meta charset="utf-8" />
-        <title>My Site's Title</title>
+        <title>Bestsellers Client</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <style media="screen" type="text/css">
+            a{
+                text-decoration: none;
+            }
+            #wrapper{
+                margin: 50px;
+            }
+            #ticket {
+                padding: 50px;
+                border: 5px dashed #bdd601;
+            }
+            #name_url{
+                font-size: 40px;
+            }
+            #price{
+                font-size: 50px;
+            }
+            .product{
+                color: #bdd601;
+            }      
+        </style>
     </head>
     <body>
         <script type="text/javascript">
@@ -23,9 +44,17 @@
         </script>
         @foreach (var product in products)
         {
-            <div>@product.name</div>
-            <div>@product.url</div>
-            <div>@product.price</div>
+            <div id="wrapper">
+            <a href="@product.url">
+                <div id="ticket">
+                    <center>
+                        <div><img width="341" height="120" title="Falabella" alt="Falabella" src="http://www.cl.issworld.com/-/media/issworld/cl/mig/noticias/noticias/publishingimages/Logo%20Falabella.png?h=120&la=es-CL&w=341" class="logo"></div>
+                        <div id="name_url"class="product"><p>@product.name</p></div>
+                        <div id="price"class="product"><p>$ @product.price</p></div>
+                    </center>
+                </div>
+            </a>
+            </div>
         }        
     </body>
 </html>
