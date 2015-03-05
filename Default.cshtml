@@ -1,5 +1,7 @@
 ﻿@{
-    
+    var client = new WebClient();
+    var json = client.DownloadString("https://bestsellers-acidlabs.herokuapp.com/random-bestseller.json");
+    var products = Json.Decode(json);    
 }
 
 <!DOCTYPE html>
@@ -11,6 +13,11 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
-        
+        @foreach (var product in products)
+        {
+            <div>@product.name</div>
+            <div>@product.url</div>
+            <div>@product.price</div>
+        }        
     </body>
 </html>
